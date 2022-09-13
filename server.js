@@ -25,6 +25,7 @@ app.use("*", (req, res, next) => {
 });
 app.use((err, req, res, next) => {
   if (err) {
+    
     logger.warn(`ruta inexistente`);
     res.send(`ruta inexistente`);
   }

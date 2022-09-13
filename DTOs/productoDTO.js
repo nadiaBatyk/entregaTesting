@@ -3,5 +3,6 @@ module.exports = class ProductoDTO {
         this.nombre=datos.nombre,
         this.precio=datos.precio,
         this.link=datos.link
+        this._id=datos._id
     }
 }
