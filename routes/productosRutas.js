@@ -16,5 +16,26 @@ router.get("/", isAuth, (req, res) => {
     email: req.user.email,
   });
 });
+/* 
+socketServer.on("connection", async (socket) => {
+  try {
+    const productos = await getProductosController();
+    socket.emit("datosTabla", productos);
+  } catch (error) {
+    logger.error(error);
+  }
+
+  socket.on("nuevo-producto", async (producto) => {
+    try {
+      await addNewProduct(producto);
+      const productos = await getProductosController();
+      socketServer.sockets.emit("datosTabla", productos);
+    } catch (error) {
+      logger.error(error);
+    }
+  });
+
+  
+}); */
 
 module.exports = router;
