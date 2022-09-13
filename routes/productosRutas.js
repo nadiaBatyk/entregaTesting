@@ -1,21 +1,12 @@
 const Router = require("express");
+const ProductosControllers = require("../controllers/productosControllers");
 const router = Router();
 
-function isAuth(req, res, next) {
-  if (req.isAuthenticated()) {
-    next();
-  } else {
-    res.render("layouts/login", { layout: "login" });
-  }
-}
+const productController = new ProductosControllers();
 //cuando le pegan al endpoint / render index.hbs
-router.get("/", isAuth, (req, res) => {
-  
-  res.render("layouts/index", {
-    layout: "index",
-    email: req.user.email,
-  });
-});
+router.get("/", productController.getProducts);
+router.post("/", productController.addNewProduct);
+
 /* 
 socketServer.on("connection", async (socket) => {
   try {
